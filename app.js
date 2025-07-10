@@ -44,7 +44,9 @@ app.use(methodOverride('_method'));
 // Routes
 app.use('/auth', authRoutes);
 app.use('/tasks', taskRoutes);
-app.get('/', (req, res) => res.render('home'));
+app.get('/', (req, res) => {
+    res.status(200).send('StudyBuddy API is running.');
+});
 app.get('/dashboard', requireAuth, (req, res) => res.redirect('/tasks'));
 
 // Error handler
